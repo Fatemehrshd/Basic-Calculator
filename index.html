@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <meta charset="UTF-8">
+        <meta name="author" content="Fatemeh Rashidi">
+        <meta name="keywords" content="calculator, html, css, js">
+        <meta name="description" content="basic calculator with js">
+        <meta name="veiwport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        <div id="background"></div>
+        <form>
+            <div id="sub">
+                <div id="keys">
+                    <input type="text" id="text-box" class="key" style="flex-grow: 4;">
+                    <br>
+    
+                    <input type="button" id="AC" class="key" value="AC">
+                    <input type="button" id="neg_plus" class="key" value="-/+">
+                    <input type="button" id="percentage" class="key" value="%">
+                    <input type="button" id="division" class="key" value="&#247" style="color: orange;">
+                    
+                    <br>
+    
+                    <input type="button" id="one"   class="key"  value="1">
+                    <input type="button" id="two"   class="key"  value="2">
+                    <input type="button" id="three" class="key"  value="3">
+                    <input type="button" id="multiplication" class="key" value="&#215" style="color: orange;">
+    
+                    <br>
+    
+                    <input type="button" id="four"   class="key"  value="4">
+                    <input type="button" id="five"   class="key"  value="5">
+                    <input type="button" id="six" class="key"  value="6">
+                    <input type="button" id="minus" class="key" value="&#8722" style="color: orange;">
+    
+                    <br>
+    
+                    <input type="button" id="seven"   class="key"  value="7">
+                    <input type="button" id="eight"   class="key"  value="8">
+                    <input type="button" id="nine" class="key"  value="9">
+                    <input type="button" id="plus" class="key" value="+" style="color: orange;">
+                    
+                    <br>
+    
+                    <input type="button" id="zero"   class="key"  value="0" style="width: 94px; text-align: left;">
+                    <input type="button" id="dot"   class="key"  value=".">
+                    <input type="button" id="equation" class="key" value="=" style="color: orange;">                
+    
+        
+                </div>
+            </div>
+        </form>
+
+
+        <script>
+            var one = document.getElementById("one");
+            var two = document.getElementById("two");
+            var three = document.getElementById("three");
+            var four = document.getElementById("four");
+            var five = document.getElementById("five");
+            var six = document.getElementById("six");
+            var seven = document.getElementById("seven");
+            var eight = document.getElementById("eight");
+            var nine = document.getElementById("nine");
+            var zero = document.getElementById("zero");
+
+            var plus = document.getElementById("plus");
+            var minus = document.getElementById("minus");
+            var percent = document.getElementById("percentage");
+            var division = document.getElementById("division");
+            var multiplication = document.getElementById("multiplication");
+            var neg_plus = document.getElementById("neg_plus");
+            var AC = document.getElementById("AC");
+            var dot = document.getElementById("dot");
+            var equation = document.getElementById("equation");
+
+            var text_box = document.getElementById("text-box");
+
+            var float_flag = 0;
+            var num1, num2, sign, result;
+
+            one.onclick = function() {
+                text_box.value += 1;   
+            }
+
+            two.onclick = function() {
+                text_box.value += 2;   
+            }
+            
+            three.onclick = function() {
+                text_box.value += 3;   
+            }
+
+            four.onclick = function() {
+                text_box.value += 4;   
+            }
+
+            five.onclick = function() {
+                text_box.value += 5;   
+            }
+
+            six.onclick = function() {
+                text_box.value += 6;   
+            }
+
+            seven.onclick = function() {
+                text_box.value += 7;   
+            }
+
+            eight.onclick = function() {
+                text_box.value += 8;   
+            }
+
+            nine.onclick = function() {
+                text_box.value += 9;   
+            }
+
+            zero.onclick = function() {
+                text_box.value += 0;   
+            }
+
+            dot.onclick = function() {
+                float_flag = 1;
+                text_box.value += ".";
+            }
+
+            AC.onclick = function() {
+                text_box.value = "";
+            }
+
+            plus.onclick = function() {
+                sign = "+";
+                num1 = parseFloat(text_box.value);
+                text_box.value = "";
+            }
+
+
+            minus.onclick = function() {
+                sign = "-";
+                num1 = parseFloat(text_box.value);
+                text_box.value = "";
+            }
+
+            multiplication.onclick = function() {
+                sign = "*";
+                num1 = parseFloat(text_box.value);
+                text_box.value = "";
+            }
+
+            division.onclick = function() {
+                sign = "/";
+                num1 = parseFloat(text_box.value);
+                text_box.value = "";
+            }          
+ 
+            percent.onclick = function() {
+                sign = "%";
+                num1 = parseFloat(text_box.value);
+                num2 = 100;
+                result = num1 / num2;
+                text_box.value = result;
+            }
+
+            neg_plus.onclick = function() {
+                sign = "~";
+                num1 = -parseFloat(text_box.value);
+                text_box.value = num1;
+            }
+
+            equation.onclick = function() {
+                
+                num2 = parseFloat(text_box.value);
+
+                if (sign == "+") {
+                    result = num1 + num2;
+                }
+                else if (sign == "-") {
+                    result = num1 - num2;
+                }
+                else if (sign == "*") {
+                    result = num1 * num2;
+                }
+                else if (sign == "/") {
+                    result = num1 / num2;
+                }
+
+                text_box.value = result;
+            }
+        </script>
+    </body>
+
+</html>
