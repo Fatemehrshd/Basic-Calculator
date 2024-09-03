@@ -1,2 +1,2 @@
-# assignment-12
+# Basic Calculator
 basic calculator with js
